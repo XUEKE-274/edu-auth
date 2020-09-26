@@ -1,0 +1,34 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shengrong.chemicalsystem.dao.AdminDao">
+
+
+
+    <select id="getById"  resultType="com.shengrong.chemicalsystem.model.entity.AdminEntity">
+        select
+            id,
+            username,
+            password,
+            create_by createBy,
+            modify_by modifyBy,
+            create_time createTime,
+            modify_time modifyTime
+        from admin_info
+        where id = #{id}
+    </select>
+
+    <select id="getByName"  resultType="com.shengrong.chemicalsystem.model.entity.AdminEntity">
+        select
+            id,
+            username,
+            password,
+            create_by createBy,
+            modify_by modifyBy,
+            create_time createTime,
+            modify_time modifyTime
+        from admin_info
+        where username = #{username}
+    </select>
+
+
+
+</mapper>
