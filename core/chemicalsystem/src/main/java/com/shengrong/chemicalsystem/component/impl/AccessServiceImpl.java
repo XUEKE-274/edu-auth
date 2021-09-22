@@ -34,21 +34,22 @@ public class AccessServiceImpl implements AccessService {
         log.info("request.getRequestURI()={}",request.getRequestURI());
         log.info("request.getServletPath()={}",request.getServletPath());
         log.info("==========================================");
-        //不需要进行验证权限
-        if (uri.startsWith(PREFIX + "/system")) {
-            return true;
-        }
-        Object principal = authentication.getPrincipal();
-        if(principal instanceof UserInfoEntity){
-            UserInfoEntity userInfoEntity = (UserInfoEntity)principal;
-            //角色列表
-            List<RoleDTO> roles = roleInfoService.getRolesByUserId(userInfoEntity.getId());
-            //权限
-            List<Map<String, String>> permissionMap = getPermissionByRoles(roles);
-            log.info("username={} permission={}",userInfoEntity.getUsername(), permissionMap);
-            return checkPermission(request.getMethod() , uri, permissionMap);
-        }
-        return false;
+        return true;
+//        //不需要进行验证权限
+//        if (uri.startsWith(PREFIX + "/system")) {
+//            return true;
+//        }
+//        Object principal = authentication.getPrincipal();
+//        if(principal instanceof UserInfoEntity){
+//            UserInfoEntity userInfoEntity = (UserInfoEntity)principal;
+//            //角色列表
+//            List<RoleDTO> roles = roleInfoService.getRolesByUserId(userInfoEntity.getId());
+//            //权限
+//            List<Map<String, String>> permissionMap = getPermissionByRoles(roles);
+//            log.info("username={} permission={}",userInfoEntity.getUsername(), permissionMap);
+//            return checkPermission(request.getMethod() , uri, permissionMap);
+//        }
+//        return false;
     }
 
     private boolean checkPermission(String method, String uri, List<Map<String, String>> permissionMap) {

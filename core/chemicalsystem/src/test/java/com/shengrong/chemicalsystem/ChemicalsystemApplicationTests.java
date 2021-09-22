@@ -1,6 +1,8 @@
 package com.shengrong.chemicalsystem;
 
+import com.shengrong.chemicalsystem.dao.TotalDao;
 import com.shengrong.chemicalsystem.model.entity.OrderEntity;
+import com.shengrong.chemicalsystem.model.entity.TotalEntity;
 import com.shengrong.chemicalsystem.service.OrderService;
 import com.shengrong.chemicalsystem.utils.RSAUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -8,9 +10,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,25 +37,22 @@ public class ChemicalsystemApplicationTests {
     private OrderService orderService;
 
 
+    @Resource
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Resource
+    TotalDao dao;
+
     @Test
     @Transactional
-    @Rollback(false)
     public void event() throws Exception{
-//        TestEvent event = new TestEvent("HHHHH");
-        try {
-            OrderEntity entity = new OrderEntity();
-            entity.setName("testname");
-            entity.setOrderNo("XXXX33333");
-            entity.setType("type_4");
-            orderService.insert(entity);
-            throw new RuntimeException();
-        }catch (Exception e){
-            log.error("error",e);
-        }
-
-//        SpringContextUtils.publish(event);
-
-//        Thread.sleep(5000L);
+//        System.out.println(bCryptPasswordEncoder.encode("admin"));
+        TotalEntity entity = new TotalEntity();
+        entity.setId("111");
+        entity.setVersion("v1");
+        entity.setCreator("Test>>");
+        entity.setResult("12312312");
+        dao.insert(entity);
 
     }
 

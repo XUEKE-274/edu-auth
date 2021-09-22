@@ -6,7 +6,7 @@ import Order from '@/components/Order'
 import Argeement from '@/components/Argeement'
 import Overview from '@/components/Overview'
 import User from '@/components/User'
-
+import Vote from '@/components/Vote'
 
 
 Vue.use(Router)
@@ -27,22 +27,26 @@ export default new Router({
           path: '/overview',
           name: 'overview',
           component: Overview
-        },
-        {
-          path: '/order',
-          name: 'order',
-          component: Order
-        },
-        {
-          path: '/argeement',
-          name: 'argeement',
-          component: Argeement
-        },
-        {
-          path: '/user',
-          name: 'user',
-          component: User
+        },{
+          path: '/vote',
+          name: 'overview',
+          component: Vote
         }
+        // {
+        //   path: '/order',
+        //   name: 'order',
+        //   component: Order
+        // },
+        // {
+        //   path: '/argeement',
+        //   name: 'argeement',
+        //   component: Argeement
+        // },
+        // {
+        //   path: '/user',
+        //   name: 'user',
+        //   component: User
+        // }
       ]
     }
   ]

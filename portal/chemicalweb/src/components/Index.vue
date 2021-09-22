@@ -37,19 +37,24 @@ export default {
         },
         {
           name : "1-2",
-          displayName : "订单管理",
-          url : "/order"
-        },
-        {
-          name : "1-3",
-          displayName : "合同管理",
-          url : "/argeement"
-        },
-        {
-          name : "1-4",
-          displayName : "用户管理",
-          url : "/user"
+          displayName : "投票管理",
+          url : "/vote"
         }
+        // {
+        //   name : "1-2",
+        //   displayName : "订单管理",
+        //   url : "/order"
+        // },
+        // {
+        //   name : "1-3",
+        //   displayName : "合同管理",
+        //   url : "/argeement"
+        // },
+        // {
+        //   name : "1-4",
+        //   displayName : "用户管理",
+        //   url : "/user"
+        // }
       ]
     }
   },

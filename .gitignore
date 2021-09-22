@@ -27,6 +27,7 @@ java/chemicalsystem/mvnw.cmd
 /nbdist/
 /.nb-gradle/
 /build/
+core/chemicalsystem/target/
 
 ### VS Code ###
 .vscode/

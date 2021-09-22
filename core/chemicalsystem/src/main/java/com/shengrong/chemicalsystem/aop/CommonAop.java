@@ -1,7 +1,10 @@
 package com.shengrong.chemicalsystem.aop;
 
 import com.shengrong.chemicalsystem.component.ValidateComponent;
+import com.shengrong.chemicalsystem.ecxeption.ChemicalException;
+import com.shengrong.chemicalsystem.ecxeption.ExceptionCodeEnum;
 import com.shengrong.chemicalsystem.utils.JsonUtils;
+import com.shengrong.chemicalsystem.utils.ResponseUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -53,7 +56,13 @@ public class CommonAop {
             response = point.proceed();
         } catch (Exception e){
             log.error(className + "." + methodName + "controller异常结束##########################################");
-            throw e;
+            if (e instanceof ChemicalException) {
+                ChemicalException ce = (ChemicalException)e;
+                ExceptionCodeEnum codeEnum = ce.getExceptionCodeEnum();
+                return ResponseUtils.errorResponse(codeEnum);
+            }
+            return ResponseUtils.errorResponse(ExceptionCodeEnum.CS000);
+//            throw e;
         }
         long endTime = System.currentTimeMillis();
         log.info("完成请求的时间{}", startTime - endTime);

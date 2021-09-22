@@ -31,8 +31,12 @@
         //请求公钥
         this.$http.getPublicKey().then(res => {
           const jsEncrypt = new JSEncrypt();
-          jsEncrypt.setPublicKey(res.data);
+          jsEncrypt.setPublicKey(res.data.result);
+          console.log("data = " + res.data.result)
           //登录
+          console.log("username = " + this.username)
+          console.log("password = " + this.password)
+          console.log("encrypt password = " + jsEncrypt.encrypt(this.password))
           this.$http.login(this.username, jsEncrypt.encrypt(this.password)).then(res => {
             //登录成功， 跳转至首页
             if (res.data.code === "success"){
