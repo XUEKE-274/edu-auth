@@ -129,7 +129,7 @@ public class TotalController {
     private VersionResponse.VersionDetail def120() {
         VersionResponse.VersionDetail detail = new VersionResponse.VersionDetail();
         detail.setVersion("V1.2.0");
-        String[] names =  {"胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马小川", "李奇", "张亚飞", "黄鑫" };
+        String[] names =  {"胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马晓川", "李奇", "张亚飞", "黄鑫", "徐房和", "杜彬菀"};
         detail.setNames(Arrays.asList(names));
         return detail;
     }
@@ -137,7 +137,7 @@ public class TotalController {
     private VersionResponse.VersionDetail def121() {
         VersionResponse.VersionDetail detail = new VersionResponse.VersionDetail();
         detail.setVersion("V1.2.1");
-        String[] names  = {"胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马小川", "李奇", "胡春婉", "黄鑫"};
+        String[] names  = {"胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马晓川", "李奇", "胡春婉", "黄鑫"};
         detail.setNames(Arrays.asList(names));
         return detail;
     }
@@ -218,6 +218,5 @@ public class TotalController {
         }
         return result;
     }
-
 
 }
