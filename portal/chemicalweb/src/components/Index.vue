@@ -39,6 +39,11 @@ export default {
           name : "1-2",
           displayName : "投票管理",
           url : "/vote"
+        },
+        {
+          name : "1-3",
+          displayName : "积分管理",
+          url : "/total"
         }
         // {
         //   name : "1-2",

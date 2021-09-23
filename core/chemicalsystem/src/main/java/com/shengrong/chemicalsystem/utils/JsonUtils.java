@@ -7,4 +7,5 @@ public class JsonUtils {
     public static String toString (Object object) {
         return JSON.toJSONString(object, SerializerFeature.WriteMapNullValue);
     }
+
 }

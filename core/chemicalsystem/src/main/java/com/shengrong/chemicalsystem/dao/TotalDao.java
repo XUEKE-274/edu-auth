@@ -10,3 +10,4 @@ public interface TotalDao extends BaseMapper<TotalEntity> {
 
     void insert0(TotalEntity entity);
 }
+

@@ -17,7 +17,7 @@
           <Input v-model="item.grade" placeholder="请输入分数, 0-1之间"/>
         </FormItem>
       <FormItem label="MVP">
-        <Select v-model="vip">
+        <Select v-model="mvp">
           <Option v-for="(item,index) in nameArr" :value="item.name" :key="index">{{ item.name }}</Option>
         </Select>
       </FormItem>
@@ -40,7 +40,7 @@ export default {
     return {
       version:"V1.2.0",
       creator: "",
-      vip: "",
+      mvp: "",
       nameArr: []
     }
   },
@@ -48,8 +48,7 @@ export default {
     //
     init: function () {
       this.nameArr = []
-      this.creator = ""
-      this.vip = ""
+      this.mvp = ""
       console.log("init >>>> ")
       let temp =[]
       if (this.version === 'V1.2.0') {
@@ -75,7 +74,8 @@ export default {
       let params = {
         version: this.version,
         creator: this.creator,
-        result: this.nameArr
+        result: this.nameArr,
+        mvp: this.mvp
       }
       this.$http.post("/total", params).then((res) => {
         console.log(res)

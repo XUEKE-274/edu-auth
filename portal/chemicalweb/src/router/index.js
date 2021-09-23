@@ -7,6 +7,7 @@ import Argeement from '@/components/Argeement'
 import Overview from '@/components/Overview'
 import User from '@/components/User'
 import Vote from '@/components/Vote'
+import Total from '@/components/Total'
 
 
 Vue.use(Router)
@@ -29,8 +30,12 @@ export default new Router({
           component: Overview
         },{
           path: '/vote',
-          name: 'overview',
+          name: 'vote',
           component: Vote
+        },{
+          path: '/total',
+          name: 'total',
+          component: Total
         }
         // {
         //   path: '/order',

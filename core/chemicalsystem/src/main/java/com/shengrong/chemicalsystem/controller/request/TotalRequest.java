@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,6 +14,7 @@ import java.util.List;
 @Setter
 @ToString
 public class TotalRequest {
+    private String mvp;
     private String creator;
     private String version;
     private List<SingleData> result;
