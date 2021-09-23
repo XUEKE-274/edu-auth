@@ -152,6 +152,9 @@ public class TotalController {
         TotalEntity query = new TotalEntity();
         query.setVersion(version);
         PageResultResponse<TotalEntity> page = totalService.queryPage(query, pageEntity);
+        if (CollectionUtils.isEmpty(page.getData())) {
+            return ResponseUtils.getDataResponse(new TotalResponse());
+        }
         List<TotalEntity> data = page.getData();
         Map<String, Integer> mvpMap = new HashMap<>();
         List<TotalRequest.SingleData> allData = new ArrayList<>();

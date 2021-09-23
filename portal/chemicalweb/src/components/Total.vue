@@ -6,6 +6,9 @@
           <Option v-for="(item, index) in versions" :value="item">{{item}}</Option>
         </Select>
       </FormItem>
+      <FormItem label="MVP">
+        <span v-for="(item, index) in mvpArr">   {{item}}  </span>
+      </FormItem>
     </Form>
 
     <Table stripe :columns="columns" :data="data"></Table>
@@ -17,6 +20,7 @@ export default {
   name: "Total",
   data(){
     return {
+      mvpArr: [],
       currentVersion: "",
       versions: [],
       data: [],
@@ -41,6 +45,7 @@ export default {
       this.$http.get("/total", {version: this.currentVersion}).then(res => {
         console.log(res.data.result.totals)
         this.data = res.data.result.totals
+        this.mvpArr = res.data.result.mvpArr
       })
     }
   },

@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,8 +17,8 @@ import java.util.List;
 public class TotalResponse {
 
 
-    private List<String> mvpArr;
-    private List<TotalDetail> totals;
+    private List<String> mvpArr = new ArrayList<>();
+    private List<TotalDetail> totals = new ArrayList<>();
 
 
     @Getter
