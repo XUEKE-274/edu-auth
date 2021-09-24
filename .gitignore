@@ -19,6 +19,7 @@ java/chemicalsystem/mvnw.cmd
 *.iws
 *.iml
 *.ipr
+*.tar
 
 ### NetBeans ###
 /nbproject/private/

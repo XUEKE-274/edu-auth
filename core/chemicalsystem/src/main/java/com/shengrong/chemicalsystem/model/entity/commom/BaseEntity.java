@@ -12,15 +12,15 @@ import java.sql.Timestamp;
 @ToString
 public class BaseEntity{
 
-    //主键
+
     @TableId("id")
     private String id;
 
-    //创建时间
+
     @TableField("create_time")
     private Timestamp createTime;
 
-    //修改时间
+
     @TableField("modify_time")
     private Timestamp modifyTime;
 
