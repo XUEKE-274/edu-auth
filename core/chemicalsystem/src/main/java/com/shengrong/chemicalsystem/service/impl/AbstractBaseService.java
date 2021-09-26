@@ -24,6 +24,7 @@ public abstract class AbstractBaseService<T extends BaseEntity> implements BaseS
     @Override
     public PageResultResponse<T> queryPage(T t, PageEntity pageEntity) {
         Wrapper<T> wrapper = new EntityWrapper<>(t);
+        wrapper.orderBy("create_time", true);
         Page<T> page = new Page<>(pageEntity.getPageNumber(), pageEntity.getPageSize());
         List<T> list = dao.selectPage(page, wrapper);
         int total = dao.selectCount(wrapper);

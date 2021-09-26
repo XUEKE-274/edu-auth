@@ -41,7 +41,8 @@ export default {
       version:"V1.2.0",
       creator: "",
       mvp: "",
-      nameArr: []
+      nameArr: [],
+      versions: []
     }
   },
   methods: {
@@ -49,22 +50,36 @@ export default {
     init: function () {
       this.nameArr = []
       this.mvp = ""
-      console.log("init >>>> ")
-      let temp =[]
-      if (this.version === 'V1.2.0') {
-        temp = ["胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马晓川", "李奇", "张亚飞", "黄鑫", "徐房和", "杜彬菀"]
-      }else if (this.version === 'V1.2.1') {
-        temp = ["胡世添", "薛科", "马玉洲", "陈天雄", "杨松涛", "李思岑", "涂昆", "张富贤", "涂松", "马晓川", "李奇", "胡春婉", "黄鑫"]
-      }
+
+      this.$http.get("/version", {}).then((res) => {
+        let r = res.data.result.versionDetails
+        this.versions = r
+        console.log(this.versions)
+
+        let temp =[]
 
 
-      for (let i = 0; i < temp.length; i++) {
-        let single = {
-          grade: 0,
-          name: temp[i]
+        for (let i = 0; i < this.versions.length; i++) {
+          let singleVersion = this.versions[i]
+          if (singleVersion.version === this.version) {
+            temp = singleVersion.names
+          }
         }
-        this.nameArr.push(single)
-      }
+          // V1.2.0  胡世添、薛科、马玉洲、陈天雄、杨松涛、李思岑、涂昆、张富贤、涂松、马晓川、李奇、张亚飞、黄鑫、徐房和、杜彬菀
+          // V1.2.1 胡世添、薛科、马玉洲、陈天雄、杨松涛、李思岑、涂昆、张富贤、涂松、马晓川、李奇、胡春婉、黄鑫
+        for (let i = 0; i < temp.length; i++) {
+          let single = {
+            grade: 0,
+            name: temp[i]
+          }
+          this.nameArr.push(single)
+        }
+
+      })
+
+
+
+
 
     },
     init0(){

@@ -55,7 +55,8 @@ public class CommonAop {
             }
             response = point.proceed();
         } catch (Exception e){
-            log.error(className + "." + methodName + "controller异常结束##########################################");
+            log.error(className + "." + methodName + "controller异常结束##########################################", e);
+
             if (e instanceof ChemicalException) {
                 ChemicalException ce = (ChemicalException)e;
                 ExceptionCodeEnum codeEnum = ce.getExceptionCodeEnum();

@@ -21,6 +21,7 @@ public class VersionResponse {
     @Setter
     @ToString
     public static class VersionDetail {
+        private String id;
         private String version;
         private List<String> names;
     }

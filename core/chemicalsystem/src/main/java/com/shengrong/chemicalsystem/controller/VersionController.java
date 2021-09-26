@@ -70,6 +70,7 @@ public class VersionController {
             String versionName = single.getName();
             String versionId = single.getId();
 
+            item.setId(versionId);
             item.setVersion(versionName);
 
 
@@ -115,12 +116,14 @@ public class VersionController {
         }
 
         PersonEntity entity = new PersonEntity();
-        entity.setId(IdUtils.getUUID());
-        entity.setCreateTime(DateUtils.getCurrentTime());
-        entity.setModifyTime(DateUtils.getCurrentTime());
+
+
         entity.setVersionId(versionId);
         for (String name : names) {
-            entity.setName(name);
+            entity.setId(IdUtils.getUUID());
+            entity.setName(name.trim());
+            entity.setCreateTime(DateUtils.getCurrentTime());
+            entity.setModifyTime(DateUtils.getCurrentTime());
             personDao.insert(entity);
         }
         return ResponseUtils.getDefResponse();

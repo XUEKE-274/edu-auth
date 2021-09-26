@@ -44,6 +44,11 @@ export default {
           name : "1-3",
           displayName : "积分管理",
           url : "/total"
+        },
+        {
+          name : "1-4",
+          displayName : "版本管理",
+          url : "/version"
         }
         // {
         //   name : "1-2",

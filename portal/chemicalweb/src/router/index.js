@@ -8,6 +8,7 @@ import Overview from '@/components/Overview'
 import User from '@/components/User'
 import Vote from '@/components/Vote'
 import Total from '@/components/Total'
+import Version from '@/components/Version'
 
 
 Vue.use(Router)
@@ -36,6 +37,10 @@ export default new Router({
           path: '/total',
           name: 'total',
           component: Total
+        },{
+          path: '/version',
+          name: 'version',
+          component: Version
         }
         // {
         //   path: '/order',
