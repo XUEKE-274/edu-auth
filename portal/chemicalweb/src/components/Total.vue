@@ -56,7 +56,6 @@ export default {
       // GET
       let versionObjs = res.data.result.versionDetails;
       let versions = [];
-      console.log(versionObjs)
       for (let index in versionObjs) {
 
         versions.push(versionObjs[index].version);

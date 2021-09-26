@@ -8,9 +8,8 @@
 
     <Form :label-width="80">
       <FormItem label="版本号">
-        <Select v-model="version" @on-change="init0">
-          <Option value="V1.2.0">工单V1.2.0</Option>
-          <Option value="V1.2.1">工单V1.2.1</Option>
+        <Select v-model="version" @on-change="init">
+            <Option v-for="(item, index) in versions" :value="item.version">{{item.version}}</Option>
         </Select>
       </FormItem>
         <FormItem  v-for="(item, index) in nameArr" v-bind:key="index"  :label="item.name">
@@ -82,9 +81,6 @@ export default {
 
 
     },
-    init0(){
-      this.init()
-    },
     commit() {
       let params = {
         version: this.version,
@@ -93,7 +89,6 @@ export default {
         mvp: this.mvp
       }
       this.$http.post("/total", params).then((res) => {
-        console.log(res)
         if (res.data.code === 'SUCCESS') {
           //添加成功后， 刷新
           this.init();
