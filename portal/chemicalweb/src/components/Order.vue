@@ -102,7 +102,10 @@
           pageSize : 10
         };
         this.$http.get("/order", query).then((res) => {
-          this.data = adapt(res.data.data);
+          console.log(res)
+          let a = adapt(res.data.result.data);
+          console.log(a)
+          this.data = a;
         });
       }
     },

@@ -1,5 +1,8 @@
 HELP.md
 java/chemicalsystem/target/
+core/edu-auth-core/target/
+core/chemicalsystem/target/
+core/chemicalsystem/var/
 !.mvn/wrapper/maven-wrapper.jar
 java/chemicalsystem/mvnw
 java/chemicalsystem/mvnw.cmd
@@ -19,6 +22,8 @@ java/chemicalsystem/mvnw.cmd
 *.iws
 *.iml
 *.ipr
+*.log
+*.DS_Store
 
 ### NetBeans ###
 /nbproject/private/

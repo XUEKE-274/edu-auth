@@ -32,8 +32,10 @@
         this.$http.getPublicKey().then(res => {
           const jsEncrypt = new JSEncrypt();
           jsEncrypt.setPublicKey(res.data);
+          console.log(this.password)
+          console.log("123 = " + jsEncrypt.encrypt(this.password))
           //登录
-          this.$http.login(this.username, jsEncrypt.encrypt(this.password)).then(res => {
+          this.$http.login(this.username, this.password).then(res => {
             //登录成功， 跳转至首页
             if (res.data.code === "success"){
               //将登陆信息放入cookie

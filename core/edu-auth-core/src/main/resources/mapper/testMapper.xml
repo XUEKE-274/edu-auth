@@ -1,0 +1,20 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shengrong.chemicalsystem.dao.TestDao">
+
+
+        <insert id="insertTestTable"  >
+            insert into test_table(id, name) values ( #{id}, #{name})
+        </insert>
+
+    <select id="query" parameterType="com.shengrong.chemicalsystem.dao.TestQuery" resultType="java.lang.String">
+        select  name from test_table
+        <if test="ids.size() == 1">
+        limit 1
+        </if>
+        <if test="ids.size() == 2">
+            limit 2
+        </if>
+
+    </select>
+
+</mapper>

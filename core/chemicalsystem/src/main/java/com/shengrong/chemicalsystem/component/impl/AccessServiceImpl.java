@@ -39,16 +39,16 @@ public class AccessServiceImpl implements AccessService {
             return true;
         }
         Object principal = authentication.getPrincipal();
-        if(principal instanceof UserInfoEntity){
-            UserInfoEntity userInfoEntity = (UserInfoEntity)principal;
-            //角色列表
-            List<RoleDTO> roles = roleInfoService.getRolesByUserId(userInfoEntity.getId());
-            //权限
-            List<Map<String, String>> permissionMap = getPermissionByRoles(roles);
-            log.info("username={} permission={}",userInfoEntity.getUsername(), permissionMap);
-            return checkPermission(request.getMethod() , uri, permissionMap);
-        }
-        return false;
+//        if(principal instanceof UserInfoEntity){
+//            UserInfoEntity userInfoEntity = (UserInfoEntity)principal;
+//            //角色列表
+//            List<RoleDTO> roles = roleInfoService.getRolesByUserId(userInfoEntity.getId());
+//            //权限
+//            List<Map<String, String>> permissionMap = getPermissionByRoles(roles);
+//            log.info("username={} permission={}",userInfoEntity.getUsername(), permissionMap);
+//            return checkPermission(request.getMethod() , uri, permissionMap);
+//        }
+        return true;
     }
 
     private boolean checkPermission(String method, String uri, List<Map<String, String>> permissionMap) {
